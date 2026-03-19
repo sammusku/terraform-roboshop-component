@@ -1,6 +1,6 @@
 locals {
     ami_id = data.aws_ami.devops.id
-    private_subnet_id = split(",", "data.aws_ssm_parameter.private_subnet_ids")[0]
+    private_subnet_id = split(",", "data.aws_ssm_parameter.private_subnet_ids.value")[0]
     sg_id = data.aws_ssm_parameter.sg_id.value
     vpc_id = data.aws_ssm_parameter.vpc_id.value
     port_number  = var.component == "frontend" ? 80 : 8080
